@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F3F5FA;
+}
+
+h1 {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 55px 0 40px 0;
+}
+
+.catalogContainer {
+    padding: 0;
+}
+
+.productCard {
+    background-color: #FFFFFF;
+    height: 414px;
+    width: 302px;
+    border-radius: 24px;
+}

@@ -1,0 +1,39 @@
+.productCard {
+    height: 414px;
+    width: 302px;
+    border-radius: 24px;
+    border: none;
+    box-shadow: none;
+}
+
+.productBody {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+}
+
+.quantityControlButton {
+    padding: 0;
+    background-color: #DEE2E6;
+    color: black;
+}
+
+.quantityInput input {
+    text-align: center;
+    padding: 0 0 9px 0;
+    border: none;
+    font-size: 16px;
+}
+
+.buttonBye {
+    width: 204px;
+    height: 44px;
+    background-color: #E7FAEB;
+    color: #3B944E;
+}
+
+.productFooter {
+    justify-content: space-between;
+    align-items: center;
+
+}

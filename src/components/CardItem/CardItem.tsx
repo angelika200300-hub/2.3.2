@@ -1,0 +1,78 @@
+import { Card, Image, Text, Button, Group } from '@mantine/core';
+import { NumberInput } from '@mantine/core';
+import { useState } from 'react';
+
+import './CardItem.css'
+
+type productProps = {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+};
+
+type cardItemProps = {
+    item: productProps;
+};
+
+function CardItem({ item }: cardItemProps) {
+
+    const [quantity, setQuantity] = useState(1);
+
+    return (
+        <Card className='productCard' shadow="sm" padding="16px" withBorder>
+            <Card.Section>
+                <Image
+                    src={item.image}
+                    h={276}
+                    alt={item.name}
+                />
+            </Card.Section>
+
+            <Group className='productBody' mt="md" mb="xs">
+                <Group wrap="nowrap">
+                    <Text fz="18px">{item.name}</Text>
+                </Group>
+                <Group className='quantityControl' gap={0} wrap="nowrap">
+                    <Button onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        h={30} w={30} className='quantityControlButton'><svg width="12px" height="2px" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <rect y="2" width="2" height="12" transform="rotate(-90 0 2)" fill="#212529"></rect>
+                        </svg>
+                    </Button>
+                    <NumberInput className='quantityInput'
+                        hideControls
+                        h={30} w={30}
+                        value={quantity}
+                        onChange={(value) => setQuantity(Number(value))}
+                    />
+                    <Button onClick={() => setQuantity(quantity + 1)}
+                        className='quantityControlButton' h={30} w={30}><svg width="12px" height="12px" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <g clip-path="url(#clip0_9075_1522)">
+                                <path d="M7 0H5V5H0V7H5V12H7V7H12V5H7V0Z" fill="#212529"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_9075_1522">
+                                    <rect width="12" height="12" fill="white"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </Button>
+                </Group>
+            </Group>
+
+            <Group className='productFooter'>
+                <Group className='price' gap={0}>
+                    <Text fz="20px" fw={700}>$</Text>
+                    <Text fz="20px" fw={700}>{item.price}</Text>
+                </Group>
+                <Button className='buttonBye' color="#3B944E" rightSection={<svg width="20px" height="20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <path d="M2.00003 1.66056C1.53979 1.66056 1.1667 2.03366 1.1667 2.4939C1.1667 2.95413 1.53979 3.32723 2.00003 3.32723V1.66056ZM3.91048 2.4939L4.71483 2.27605C4.61645 1.9128 4.28682 1.66056 3.91048 1.66056V2.4939ZM7.01496 13.9566L6.2106 14.1744C6.31916 14.5753 6.70626 14.835 7.11832 14.7835L7.01496 13.9566ZM16.5672 12.7626L16.6706 13.5895C17.0245 13.5452 17.311 13.2807 17.3832 12.9314L16.5672 12.7626ZM18 5.83718L18.8161 6.00602C18.8669 5.76059 18.8045 5.50534 18.6462 5.31099C18.488 5.11665 18.2507 5.00385 18 5.00385V5.83718ZM4.81595 5.83718L4.0116 6.05503V6.05503L4.81595 5.83718ZM2.00003 3.32723H3.91048V1.66056H2.00003V3.32723ZM7.11832 14.7835L16.6706 13.5895L16.4638 11.9357L6.91159 13.1297L7.11832 14.7835ZM17.3832 12.9314L18.8161 6.00602L17.184 5.66834L15.7511 12.5937L17.3832 12.9314ZM3.10612 2.71174L4.0116 6.05503L5.62031 5.61934L4.71483 2.27605L3.10612 2.71174ZM4.0116 6.05503L6.2106 14.1744L7.81931 13.7387L5.62031 5.61934L4.0116 6.05503ZM18 5.00385H4.81595V6.67052H18V5.00385ZM9.1667 17.0833C9.1667 17.3134 8.98015 17.5 8.75003 17.5V19.1666C9.90063 19.1666 10.8334 18.2339 10.8334 17.0833H9.1667ZM8.75003 17.5C8.51991 17.5 8.33337 17.3134 8.33337 17.0833H6.6667C6.6667 18.2339 7.59944 19.1666 8.75003 19.1666V17.5ZM8.33337 17.0833C8.33337 16.8532 8.51991 16.6666 8.75003 16.6666V15C7.59944 15 6.6667 15.9327 6.6667 17.0833H8.33337ZM8.75003 16.6666C8.98015 16.6666 9.1667 16.8532 9.1667 17.0833H10.8334C10.8334 15.9327 9.90063 15 8.75003 15V16.6666ZM15.8334 17.0833C15.8334 17.3134 15.6468 17.5 15.4167 17.5V19.1666C16.5673 19.1666 17.5 18.2339 17.5 17.0833H15.8334ZM15.4167 17.5C15.1866 17.5 15 17.3134 15 17.0833H13.3334C13.3334 18.2339 14.2661 19.1666 15.4167 19.1666V17.5ZM15 17.0833C15 16.8532 15.1866 16.6666 15.4167 16.6666V15C14.2661 15 13.3334 15.9327 13.3334 17.0833H15ZM15.4167 16.6666C15.6468 16.6666 15.8334 16.8532 15.8334 17.0833H17.5C17.5 15.9327 16.5673 15 15.4167 15V16.6666Z" fill="#3B944E"></path>
+                </svg>} fw={500} fz="16px">
+                    Add to cart
+                </Button>
+            </Group>
+        </Card>
+    );
+}
+
+export default CardItem

@@ -1,0 +1,16 @@
+.cartEmpty {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    z-index: 1;
+    width: 301px;
+    height: 227px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.titleCartEmpty {
+    color: #868E96;
+    padding-top: 20px;
+}
