@@ -4,7 +4,6 @@
     right: 16px;
     z-index: 1;
     width: 444px;
-    height: 227px;
     border-radius: 16px;
     background-color: #ffffff;
     align-items: center;
@@ -40,4 +39,10 @@
 
 .cartContentBottom {
     width: 100%;
+}
+
+.quantityControlButton {
+    padding: 0;
+    background-color: #DEE2E6;
+    color: black;
 }
