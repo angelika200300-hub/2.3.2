@@ -38,3 +38,9 @@
     height: 44px;
     font-size: 16px;
 }
+
+.badgeSum {
+    color: black;
+    background-color: white;
+    margin-right: 10px;
+}
